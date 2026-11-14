@@ -1,4 +1,4 @@
-"""Supabase JWT verification and verified-email enforcement."""
+"""supabase JWT verification and verified-email enforcement."""
 from __future__ import annotations
 
 import os
@@ -15,7 +15,7 @@ bearer_scheme = HTTPBearer(auto_error=False)
 
 
 class AuthConfigurationError(RuntimeError):
-    """Raised when required Supabase environment variables are missing."""
+    """Raised when required supabase environment variables are missing."""
 
 
 def _required_env(name: str) -> str:
