@@ -84,7 +84,7 @@ export function AuthProvider({ children }) {
     if (!supabase) throw new Error('Supabase is not configured. Set the VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY environment variables.');
     return supabase.auth.signInWithOAuth({
       provider: 'google',
-      options: { redirectTo: `${window.location.origin}/recognize` },
+      options: { redirectTo: 'https://ecriture.in/recognize' },
     });
   }, []);
 
@@ -98,7 +98,9 @@ export function AuthProvider({ children }) {
     return supabase.auth.signUp({
       email,
       password,
-      options: { emailRedirectTo: `${window.location.origin}/login` },
+      options: {
+        emailRedirectTo: 'https://ecriture.in/login',
+      },
     });
   }, []);
 
