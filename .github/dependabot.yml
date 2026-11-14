@@ -1,20 +1,85 @@
 version: 2
 updates:
+  - package-ecosystem: npm
+    directory: "/frontend"
+    groups:
+      major-version-updates:
+        patterns:
+          - "*"
+        update-types:
+          - "major"
+      minor-version-updates:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+      patch-version-updates:
+        patterns:
+          - "*"
+        update-types:
+          - "patch"
+    schedule:
+      interval: weekly
+
   - package-ecosystem: pip
     directory: "/backend"
     groups:
-      all-dependencies:
+      major-version-updates:
         patterns:
           - "*"
+        update-types:
+          - "major"
+      minor-version-updates:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+      patch-version-updates:
+        patterns:
+          - "*"
+        update-types:
+          - "patch"
     schedule:
       interval: weekly
 
   - package-ecosystem: docker
     directory: "/backend"
+    groups:
+      major-version-updates:
+        patterns:
+          - "*"
+        update-types:
+          - "major"
+      minor-version-updates:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+      patch-version-updates:
+        patterns:
+          - "*"
+        update-types:
+          - "patch"
     schedule:
       interval: weekly
 
   - package-ecosystem: github-actions
     directory: "/"
+    groups:
+      major-version-updates:
+        patterns:
+          - "*"
+        update-types:
+          - "major"
+      minor-version-updates:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+      patch-version-updates:
+        patterns:
+          - "*"
+        update-types:
+          - "patch"
     schedule:
       interval: weekly
