@@ -252,7 +252,7 @@ function TopicOverview() {
           </div>
 
           <div className="index-aside">
-            <span className="index-symbol">e.</span>
+            <img className="index-symbol" src="/brand-mark.png" alt="" aria-hidden="true" />
             <span className="mono">ONE SYSTEM</span>
             <span className="aside-divider" />
             <span className="mono">MULTIPLE POSSIBILITIES</span>
