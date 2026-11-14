@@ -373,7 +373,7 @@ function SiteFooter() {
       </div>
 
       <div className="footer-bottom">
-        <span>© {new Date().getFullYear()} ECRITURE.AI · ALL RIGHTS RESERVED</span>
+        <span>© {new Date().getFullYear()} ecritureAI · ALL RIGHTS RESERVED</span>
         <span>A FULL-PAGE DOCUMENT OCR PROJECT</span>
       </div>
     </footer>
