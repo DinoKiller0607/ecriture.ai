@@ -36,9 +36,9 @@ export default function Navbar() {
   return (
     <header className="site-nav" id="top">
       <div className="site-nav-inner">
-        <Link to="/" className="site-brand" onClick={closeMenu} aria-label="ecriture.ai home">
-          <span className="site-brand-mark">e.</span>
-          <span>ecriture<span className="site-brand-accent">.ai</span></span>
+        <Link to="/" className="site-brand" onClick={closeMenu} aria-label="ecritureAI home">
+          <img className="site-brand-mark" src="/brand-mark.png" alt="" aria-hidden="true" />
+          <span>ecriture<span className="site-brand-accent">AI</span></span>
         </Link>
 
         <nav className={`site-nav-links ${menuOpen ? 'site-nav-open' : ''}`} aria-label="Main navigation">
@@ -84,7 +84,7 @@ export default function Navbar() {
             </>
           ) : (
             <Link to="/login" className="site-nav-auth" onClick={closeMenu}>
-              <UserRound size={15} /><span>SIGN IN</span>
+              <UserRound size={15} /><span><ScrambleText text="SIGN IN"/></span>
             </Link>
           )}
 

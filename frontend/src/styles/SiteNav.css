@@ -35,15 +35,11 @@
 }
 
 .site-brand-mark {
-  display: grid;
+  display: block;
   width: 31px;
   height: 31px;
-  place-items: center;
-  border: 1px solid var(--border-strong);
-  color: var(--cyan);
-  font-family: var(--mono);
-  font-size: 16px;
-  font-weight: 400;
+  flex: 0 0 auto;
+  object-fit: contain;
 }
 
 .site-brand-accent { color: var(--cyan); }
@@ -318,4 +314,59 @@
   .site-nav-usage { min-width: 34px; width: 34px; padding: 0; }
   .site-nav-usage small { display: none; }
   .site-nav-usage strong { font-size: 11px; }
+}
+
+
+/* Mobile glass: keep the header and dropdown as separate backdrop surfaces.
+   The header's filter used to constrain the menu's backdrop sampling area. */
+@media (max-width: 820px) {
+  .site-nav {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+  }
+
+  .site-nav::before {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    border-bottom: 1px solid rgba(190, 207, 214, .18);
+    background: rgba(8, 11, 13, .68);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, .16), inset 0 1px 0 rgba(255, 255, 255, .08);
+    content: '';
+    pointer-events: none;
+    backdrop-filter: blur(30px) saturate(185%);
+    -webkit-backdrop-filter: blur(30px) saturate(185%);
+  }
+
+  .site-nav-links.site-nav-open {
+    z-index: 1001;
+    border: 1px solid rgba(210, 226, 233, .22);
+    border-top-color: rgba(255, 255, 255, .28);
+    background: rgba(8, 13, 16, .68) !important;
+    box-shadow: 0 22px 48px rgba(0, 0, 0, .32),
+      inset 0 1px 0 rgba(255, 255, 255, .17),
+      inset 0 -1px 0 rgba(255, 255, 255, .045);
+    -webkit-backdrop-filter: blur(34px) saturate(200%) !important;
+    backdrop-filter: blur(34px) saturate(200%) !important;
+    isolation: isolate;
+  }
+
+  :root[data-theme='light'] .site-nav::before {
+    border-bottom-color: rgba(115, 143, 153, .28);
+    background: rgba(244, 249, 251, .70);
+    box-shadow: 0 8px 28px rgba(37, 62, 72, .08), inset 0 1px 0 rgba(255, 255, 255, .85);
+  }
+
+  :root[data-theme='light'] .site-nav-links.site-nav-open {
+    border-color: rgba(112, 139, 150, .24);
+    border-top-color: rgba(255, 255, 255, .9);
+    background: rgba(244, 249, 251, .72) !important;
+    box-shadow: 0 22px 45px rgba(37, 62, 72, .14),
+      inset 0 1px 0 rgba(255, 255, 255, .88),
+      inset 0 -1px 0 rgba(255, 255, 255, .35);
+    backdrop-filter: blur(34px) saturate(195%) !important;
+    -webkit-backdrop-filter: blur(34px) saturate(195%) !important;
+  }
 }

@@ -222,8 +222,10 @@ function IntroSection() {
         <RecognitionIllustration />
 
         <a className="scroll-cue" href="#system">
-          <span>SCROLL TO EXPLORE</span>
-          <ArrowDown size={14} />
+          <span>
+            <ScrambleText text="SCROLL DOWN" />
+          </span>
+          <ArrowDown size={13} className="scroll-cue-icon" aria-hidden="true" />
         </a>
       </div>
     </section>
@@ -346,10 +348,9 @@ function SiteFooter() {
     <footer className="footer">
       <div className="container footer-top">
         <a href="#top" className="wordmark">
-          <span className="wordmark-symbol">e.</span>
-          <span>
-            ecriture<span className="cyan">.ai</span>
-          </span>
+          <Link to="/" className="architecture-wordmark"><img src="/brand-mark.png" alt="" aria-hidden="true" />
+          <span>ecriture<span className="site-brand-accent">AI</span></span>
+        </Link>
         </a>
 
         <span className="footer-description">

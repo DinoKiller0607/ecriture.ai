@@ -46,22 +46,23 @@ export default function ScrambleText({ text, className = '', stable = false }) {
   // Trigger from the whole enclosing link/button, not just the text glyphs.
   useEffect(() => {
     const control = textRef.current?.closest('a, button, [role="button"]');
+
     if (!control) return undefined;
 
-    const handlePointerEnter = () => runScramble();
-    const handleFocus = () => runScramble();
-    control.addEventListener('pointerenter', handlePointerEnter);
-    control.addEventListener('focus', handleFocus, true);
+    const handleInteraction = () => runScramble();
+
+    control.addEventListener('focus', handleInteraction, true);
+    control.addEventListener('pointerenter', handleInteraction);
 
     return () => {
-      control.removeEventListener('pointerenter', handlePointerEnter);
-      control.removeEventListener('focus', handleFocus, true);
+      control.removeEventListener('focus', handleInteraction, true);
+      control.removeEventListener('pointerenter', handleInteraction);
     };
   }, [runScramble]);
 
   if (stable) {
     return (
-      <span ref={textRef} className={`scramble-stable ${className}`.trim()} aria-label={text}>
+      <span ref={textRef} className={`scramble-stable ${className}`.trim()} aria-label={text} onPointerEnter={runScramble}>
         <span className="scramble-stable-size" aria-hidden="true">{text}</span>
         <span className="scramble-stable-live" aria-hidden="true">{display}</span>
       </span>
@@ -69,7 +70,7 @@ export default function ScrambleText({ text, className = '', stable = false }) {
   }
 
   return (
-    <span ref={textRef} className={className} aria-label={text}>
+    <span ref={textRef} className={className} aria-label={text} onPointerEnter={runScramble}>
       <span aria-hidden="true">{display}</span>
     </span>
   );

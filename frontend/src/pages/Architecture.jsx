@@ -126,12 +126,14 @@ function ArchitectureFooter() {
   return (
     <footer className="architecture-footer">
       <div className="architecture-footer-inner">
-        <Link to="/" className="architecture-wordmark"><span>e.</span> ecriture.ai</Link>
+        <Link to="/" className="architecture-wordmark"><img src="/brand-mark.png" alt="" aria-hidden="true" />
+          <span>ecriture<span className="site-brand-accent">AI</span></span>
+        </Link>
         <span>DBNet DETECTION / TrOCR RECOGNITION</span>
-        <Link to="/recognize"><ScrambleText text="TRY RECOGNITION" /> <ArrowUpRight size={13} /></Link>
+        <Link to="/recognize"><ScrambleText text ="TRY RECOGNITION"/> <ArrowUpRight size={13} /></Link>
       </div>
       <div className="architecture-footer-bottom">
-        <span>© {new Date().getFullYear()} ECRITURE.AI · ALL RIGHTS RESERVED</span>
+        <span>© {new Date().getFullYear()} ecritureAI · ALL RIGHTS RESERVED</span>
         <span>IMPLEMENTATION NOTES · SINGLE-COLUMN PAGE HEURISTIC</span>
       </div>
     </footer>
@@ -207,8 +209,8 @@ export default function Architecture() {
               >
                 <span className="architecture-stage-top"><span>{stage.number}</span></span>
                 <span className="architecture-stage-icon"><StageIcon size={20} strokeWidth={1.55} /></span>
-                <strong><ScrambleText text={stage.title} stable /></strong>
-                <small><ScrambleText text={stage.tag} stable /></small>
+                <strong>{stage.title}</strong>
+                <small>{stage.tag}</small>
               </button>
             );
           })}
@@ -271,7 +273,7 @@ export default function Architecture() {
           <div className="status-band-icon"><Sparkles size={19} /></div>
           <div><strong>Check the live service.</strong><p>{apiDetail}</p></div>
           <button type="button" className={`status-band-button state-${apiState}`} onClick={checkApi}>
-            <ScrambleText text={statusLabel} />
+            {statusLabel}
             <ArrowUpRight size={14} />
           </button>
         </section>
